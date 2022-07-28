@@ -1,0 +1,28 @@
+.wishlist-section {
+  padding: var(--space-big) 0;
+  min-height: 300px;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.8;
+  background-color: var(--color-primary2);
+  color: var(--color-white);
+  align-items: center;
+}
+
+.wishlist-section h2 {
+  font-size: var(--font-size-ultra);
+}
+
+.wishlist-section ul {
+  margin: var(--space-big) 0;
+}
+
+.wishlist-section ul li::before {
+  padding-right: 3px;
+  content: "✓";
+}
+
+.total-sum {
+  font-size: 28px;
+  font-weight: 900;
+}

@@ -1,0 +1,15 @@
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Martel:wght@300;400;600;700&display=swap");
+
+/* Base */
+@import url("./base/variables.css");
+@import url("./base/layout.css");
+
+/* Components */
+@import "./components/product-list.css";
+@import "./components/product-card.css";
+@import "./components/wishlist.css";
+
+/* Screens */
+@import url("./screens/loading-screen.css");
+@import url("./screens/error-screen.css");

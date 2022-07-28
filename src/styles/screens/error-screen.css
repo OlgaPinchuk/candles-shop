@@ -1,0 +1,12 @@
+.error-screen .icon-error-cloud {
+  display: inline-block;
+  width: 70px;
+  height: 60px;
+  background: var(--color-primary1) url("../../assets/images/error-cloud.png")
+    no-repeat center;
+  background-size: contain;
+}
+
+.error-screen p {
+  margin-top: var(--space-small);
+}
