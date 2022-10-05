@@ -10,21 +10,29 @@ import LoadingScreen from "./screens/LoadingScreen";
 import MainScreen from "./screens/MainScreen";
 import ErrorScreen from "./screens/ErrorScreen";
 
+import { Product } from "./interfaces/interfaces";
+
 import "./styles/style.css";
+
+const enum StatusCodes {
+  LOADING,
+  LOADED,
+  ERROR,
+}
 
 export default function App() {
   // Local state
-  const [status, setStatus] = useState(0); // 0 loading, 1 loaded, 2 error
-  const [products, setProducts] = useState([]);
+  const [status, setStatus] = useState(StatusCodes.LOADING);
+  const [products, setProducts] = useState(Array<Product>());
 
   useEffect(() => {
     API.getProducts(
-      (data) => {
+      (data: Product[]) => {
         setProducts(data);
-        setStatus(1);
+        setStatus(StatusCodes.LOADED);
       },
-      (error) => {
-        setStatus(2);
+      (error: Error) => {
+        setStatus(StatusCodes.ERROR);
         console.error(error);
       }
     );
@@ -34,9 +42,9 @@ export default function App() {
     <div className="App">
       <Header />
       <main>
-        {status === 0 && <LoadingScreen />}
-        {status === 1 && <MainScreen products={products} />}
-        {status === 2 && <ErrorScreen />}
+        {status === StatusCodes.LOADING && <LoadingScreen />}
+        {status === StatusCodes.LOADED && <MainScreen products={products} />}
+        {status === StatusCodes.ERROR && <ErrorScreen />}
       </main>
       <Footer />
     </div>

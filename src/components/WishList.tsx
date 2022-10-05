@@ -1,4 +1,9 @@
-export default function WishList({ items }) {
+import { Favorite } from "../interfaces/interfaces";
+interface props {
+  items: Favorite[];
+}
+
+export default function WishList({ items }: props) {
   const totalSum = items.reduce(
     (previous, current) => previous + current.price,
     0

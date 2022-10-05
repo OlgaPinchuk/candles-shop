@@ -1,7 +1,15 @@
 // NPM Packages
 import { useState, useMemo } from "react";
 
-export default function ProductCard({ product, addItem, isAdded }) {
+import { Product, Favorite} from '../interfaces/interfaces';
+
+interface props {
+  product: Product;
+  addItem: (item: Favorite) => void;
+  isAdded: (id: string) => boolean;
+}
+
+export default function ProductCard({ product, addItem, isAdded }: props) {
   // Constants
   const { name, description, details, imageURL, price, discount, id } = product;
 

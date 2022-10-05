@@ -3,16 +3,22 @@ import ProductList from "../components/ProductList";
 import WishList from "../components/WishList";
 import useFavorites from "../hooks/useFavorites";
 
-export default function MainScreen({ products }) {
+import { Product, Favorite } from "../interfaces/interfaces";
+
+interface props {
+  products: Product[];
+}
+
+export default function MainScreen({ products }: props) {
   // State
   const [list, setList] = useFavorites();
 
   //Methods
-  function addItem(item) {
+  function addItem(item: Favorite) {
     setList([...list, item]);
   }
 
-  function isAdded(id) {
+  function isAdded(id: string): boolean {
     return list.some((item) => item.id === id);
   }
 
